@@ -1,3 +1,4 @@
+// Coding challenge - Nov 01, 2021
 const paragraph = document.querySelector('p');
 
 function checkDogs(array1, array2) {
