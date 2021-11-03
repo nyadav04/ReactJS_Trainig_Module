@@ -57,6 +57,26 @@ const inputLoanAmount = document.querySelector('.form__input--loanamount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin= document.querySelector('.form__input--pin');
 
+////displaying transactions in app
+
+const displayMovements = function (movements) {
+
+    movements.forEach(function (mov, i){
+        const type = mov > 0 ? 'deposit' : 'withdrawal'
+        const html = `
+        <div class="movement__row">
+        <div class="movement__type movement__type--${type}">${i + 1} ${type}
+        </div>
+        <div class="movement__value">${mov}</div>
+    </div>   
+        `;
+        containerMovements.insertAdjacentHTML('afterbegin', html)
+    })
+}
+
+displayMovements(account1.movements)
+
+
 //Array Methods
 // let arr = ['a', 'b', 'c', 'd', 'e'];
 
@@ -150,13 +170,59 @@ uniqueCurrency.forEach(function(value, _, map){
 
 Create a function 'checkDogs', which accepts 2 arrays of dogs(Aman's array and Deepanshu's array), we need to perform the following things:
 
-1. Aman found out that thwe owner of the first and the last two dogs actually have lions, nit dogs. So we need to create a shallow copy of Aman's array
+1. Aman found out that thwe owner of the first and the last two dogs actually have lions, not dogs. So we need to create a shallow copy of Aman's array
 and remove the lion data from the copied array.
 
 2. Create an array with both aman's corrected array and deepnashu's original array
 
-3. We eed to print that whether a dog is puppy or an adult
+3. We need to print that whether a dog is puppy or an adult
 
 Test Cases: Aman's array [3, 4, 8,9,1] and deepamshu [1, 6, 3, 7, 3]
 
 */
+
+// const checkDogs = function (dogsAman, dogsDeep) {
+//     const dogsAmanCorrected = dogsAman.slice();
+//     dogsAmanCorrected.splice(0, 1);
+//     dogsAmanCorrected.splice(-2);
+//     //console.log(dogsAmanCorrected)
+//     const dogs = dogsAmanCorrected.concat(dogsDeep)
+//     console.log(dogs)
+
+//     dogs.forEach(function (dog, i){
+//         if (dog >=3 ){
+//             console.log(`Dog number ${i + 1} is an adult, and is a ${dog} years old`)
+//         } else {
+//             console.log(`Dog number ${i + 1} is still a puppy`)
+//         }
+//     })
+// }
+
+// checkDogs([3, 4, 8,9,1], [1, 6, 3, 7, 3])
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+    return mov * eurToUsd;
+})
+
+console.log(movements)
+console.log(movementsUSD)
+
+const movementsUSDfor = []
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor)
+
+// const movemenDescription = movements.map((mov, i, arr) => {
+//     if(mov > 0){
+//         return `Movement ${i + 1}: You deposited ${mov}`
+//     } else {
+//         return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`
+//     }
+// })
+
+const movemenDescription = movements.map((mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`
+)
+
+console.log(movemenDescription)
