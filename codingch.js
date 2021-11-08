@@ -7,22 +7,15 @@ and remove the lion data from the copied array.
 3. We eed to print that whether a dog is puppy or an adult
 Test Cases: Aman's array [3, 4, 8,9,1] and deepamshu [1, 6, 3, 7, 3]
 */
-const checkDogs=(arr1,arr2)=>{
-const changes=arr1
-for(let i=0;i<2;i++){
-    changes.pop()
+
+function checkDogs(arr1,arr2){
+	const corrected_arr = [...arr1]
+	corrected_arr.splice(0,1)
+	corrected_arr.splice(-2)
+	corrected_arr.concat(arr2).forEach((item,idx)=>{
+		(item<3) ? console.log(`Dog-${idx+1} is a Puppy`) : console.log(`Dog-${idx+1} is an Adult Dog`)
+	})
 }
-changes.shift()
 
-const combined=[...changes,...arr2]
+checkDogs([3, 4, 8,9,1],[1, 6, 3, 7, 3])
 
-
-combined.map((dog,index)=>{
-    if(dog<3){
-        console.log(`Dog${index+1}:Its a Puppy`)
-    }else{
-        console.log(`Dog${index+1}:It's a adult Dog`)
-    }
-})
-}
-console.log(checkDogs([3, 4, 8,9,1],[1, 6, 3, 7, 3]))
