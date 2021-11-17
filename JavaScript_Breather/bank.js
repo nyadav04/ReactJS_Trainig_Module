@@ -116,7 +116,7 @@ const calcDisplaySummary = function (acc) {
 ///Create UserName
 
 //Practice - Hardcoded value
-// const user = 'Steven Thomas Williams'; //stw
+// const user = 'Tiger Shroff'; //ts
 // const username = user
 // .toLowerCase()
 // .split(' ')
