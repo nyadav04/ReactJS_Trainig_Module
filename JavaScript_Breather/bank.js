@@ -441,7 +441,7 @@ console.log(max)
 
 // console.log(firstWithDrawal)
 
-// const account = accounts.find(acc => acc.owner === 'Jonas Schmedtmann')
+// const account = accounts.find(acc => acc.owner === 'Akshay Kumar')
 // console.log(account)
 
 // some and every
