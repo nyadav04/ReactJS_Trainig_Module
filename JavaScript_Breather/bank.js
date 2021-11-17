@@ -124,7 +124,7 @@ const calcDisplaySummary = function (acc) {
 //   return name[0];
 // }).join('');
 
-const user = 'Steven Thomas Williams'; //stw
+const user = 'Akshay Kumar'; //ak
 const username = user
  .toLowerCase()
  .split(' ')
