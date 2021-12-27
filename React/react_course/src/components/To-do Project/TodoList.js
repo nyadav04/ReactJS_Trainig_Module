@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const TodoList = (props) => {
+  const [isChecked, setIsChecked] = useState(false);
   const handleRemove = (key) => {
     const newList = props.todoList.filter((itemObj) => {
       return itemObj.key !== key;
@@ -8,12 +9,26 @@ const TodoList = (props) => {
     props.updateListItem(newList);
   };
 
+  const handleOnChange = () => {
+    setIsChecked(!isChecked);
+    
+  };
+
   return (
     <div>
       {props.todoList.map((itemObj, index) => {
         return (
           <div key={index}>
-            <h2 style={{ display: "inline-block", marginRight: "20px" }}>
+            <input
+              type="checkbox"
+              value="isCompleted"
+              checked={isChecked}
+              onClick={handleOnChange}
+            />
+            <h2
+              style={{ display: "inline-block", marginRight: "20px" }}
+              
+            >
               {itemObj.item}
             </h2>
             <button onClick={() => handleRemove(itemObj.key)}>Remove</button>

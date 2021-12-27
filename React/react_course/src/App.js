@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 import Main from "./components/To-do Project/Main";
+import ImageCompressor from "./components/Image-Compressor/ImageCompressor";
 
 const App = () => {
   const [expenses, setExpenses] = useState([
@@ -49,6 +50,7 @@ const App = () => {
       {/* <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} /> */}
       <Main/>
+      <ImageCompressor/>
     </div>
   );
 };

@@ -10,3 +10,7 @@ body{
   margin: 0;
   background-color: #ffffff;
 }
+
+.strike-todo{
+  text-decoration: line-through;
+}
