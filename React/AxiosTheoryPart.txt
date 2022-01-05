@@ -1,0 +1,99 @@
+What is Axios?
+Axios is a promise based HTTP client for Node.Js and browser. On server side it ises the native nodeJs HTTP module, while on the browser (client) it uses XMLHttpRequest
+
+Features:
+1. Make XMLHttpRequests
+2. Make http request from nodejs
+3. Tranforms request and response, intercepts request and response
+4. Tranforms JSON data
+
+Example:
+1. GET
+Performing the GET request
+
+const axios = require('axios');
+
+axios.get('url')
+.then(function(response){
+	//handle success
+}
+.catch(function(error){
+	//handles the error
+}
+
+async and await example
+
+async function getData(){
+try{
+	const response = await axios.get('url');
+	console.log(response);
+} cathc (error) {
+	console.log(error);
+}
+}
+
+
+2. POST
+Performing the POST request
+axios.post('url', {
+	firstName: 'Nishank',
+	lastName: 'Rao'
+})
+.then (function (response) {
+	console.log(response);
+})
+.catch(function (error) {
+	console.log(error);
+}
+
+Multiple concurrent request
+
+function getAccount(){
+	return axios.get('url');
+}
+ 
+function getPermission(){
+	return axios.get('url1');
+}
+
+Promise.all([getAccount(), getPermission()])
+	.then(function (results) {
+	const account = result[0];
+	const permission = result[1];
+
+})
+
+How to pass the relevant Config to axios
+
+axios(config)
+
+//Send the POST request
+axios({
+	method: 'post',
+	url: '/employee/001EVI744',
+	data: {
+		firstName: 'Nishank',
+		lastName: 'Rao'
+	}
+});
+
+//GET request
+axios({
+	method: 'get',
+	url: 'http://www.google.com/videos',
+	responseType: 'stream'
+})
+	.then(function (response) {
+	response.data.pipe(fs.createWriteStream('abc.mp4'))
+});
+
+Axios Instance
+Creating an Axios Instance
+
+axios.create([config])
+
+const instance = axios.create([
+	baseUrl: 'http://someURL.com/api',
+	timeout: 1000,
+	header: {'X-custom-Header': 'abcdfg'}
+])
