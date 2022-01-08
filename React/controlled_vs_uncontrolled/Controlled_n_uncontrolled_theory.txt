@@ -1,0 +1,51 @@
+1. React basically supports two type of components- Controlled and Uncontrolled
+2. It's recommended to use the controlled components to implements forms in React. In controlled component the data is handles by React component, and in uncontrolled component the data is handeled by DOM
+3. In controlled component the data is handled by the state created in a component. State created in a particular component serves a single source for the input elements which are rendered by the component.
+4. Uncontrolled component - They act like traditional HTML form elements. The data for each input element is stored in DOM, not in the component.
+5. Instead of writting an event handler for all the state updates, we use ref to retrieve values from the DOM.
+
+Small introduction regarding usage of Ref()
+1. Refs are created using React.createRef()
+2. Ref are attached to input elements using the ref attribute on the element.
+3. Refs are often used as instance properties on a component. Ref is set in the constructor, and the value is available throughout the component.
+4. Ref attribute cannot be used on function component, they can be used inside function component.
+Ref attribute cannot be used on function component - example
+
+function MyComponent() {
+    return <input/>
+}
+class MyOtherComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.textInput = React.createRef();
+    }
+    render(){
+        return (
+            <MyComponent ref={this.textInput}/>
+        )
+    }
+}
+
+can be used inside function component.
+function MyInput (props) {
+    let myinput = React.createRef();
+    function setFocus() {
+        textInput.current.focus();
+    }
+    return(
+        <div>
+            <input ref="{myinput}/>
+    )
+}
+
+Summarry
+
+1. Used controlled component.
+2. Controlled component do not require a form element in order to be considered a controlled component.
+3. If a component has an input field element that has a value attribute bound to a state and an event handler to update state, it is a controlled component.
+4. If there are many input fields it is difficult to use controlledcomponent.
+5. Data flow is uni-directional in controlled components.
+6. All state changes within a controlled component is made via setState function.
+7. Uncontrolled component store their data in DOM 
+8. React.createRef() us used to create instance variable within uncontrolled component constructor.
+These variables are associated with input elements via ref attribute.
