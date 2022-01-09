@@ -1,0 +1,101 @@
+Context - It provides a way to pass the data through the components tree structure without passing down props manually at each level.
+To share values between components without having to explicitly pass a prop through every level of the tree structure of components in react.
+
+Example below we will manually thread through a theme prop in order to style the button component.
+
+class App extends React.components {
+    render () {
+        return <Toolbar theme="dark" />;
+    }
+}
+
+function Toolbar(props) {
+    //Toolbar component will take extra theme prop and will pass it to the theme button.
+    //It will be not a good practice if every button in the app need to know the the theme.
+    return(
+        <div>
+        <ThemedButton theme={props.theme}/>
+        </div>
+    );
+}
+class ThemedButton extends React.components {
+    render() {
+        return <Button theme={this.props.theme}/>;
+    }
+}
+
+Using Context we can avoid the above practice of passing the props through intermediate elements.
+//Context lets us pass a value deep into the tree structure
+//without explicitly threading it through every component.
+//Create a context for the current theme with light as default.
+
+class App extends React.Components {
+    render() {
+        return(
+            <ThemeContext.Provider value="dark">
+            <Toolbar/>
+            </ThemeContext>
+        )
+    }
+}
+
+function Toolbar() {
+    return (
+        <div>
+        <ThemedButton/>
+        </div>
+    )
+}
+
+class ThemedButton extends React.Components {
+
+    static contextType = ThemeContext;
+    render() {
+        return <Button theme={this.context} />
+    }
+}
+
+//Composition component
+
+API
+React.createContext
+const context = React.createContext(defaultValue);
+//It Creates a context object when renders a component that subscribes to this Context object, it will read the current context value from the nearest provider above in the tree structure.
+//Default value argument is only used when a component does not have a matching Provider above it in the tree structure. Passing the undefines as a provider value does not cause consuming components to use defaultValue.
+
+Context.Provider
+<MyContext.Provider value="some value">
+//every Context object comes with a provider react componentwhich allows consuming components to subscribe to context changes.
+//Provider component accepts a value prop to be passed to consuming components that are descendants of this provider.
+//One provider can be connected to many consumers
+//Provider can be nested to override value deeper within the tree.
+//Consumers that are descendants of a provider will re-render whenevr the Provider's value prop changes.
+
+
+//class.contextType
+
+class abs extends React.Components {
+    componentDidMount() {
+        let value = this.context
+    }
+
+    componentDidUpdate() {
+
+    }
+    componentWillUnmount(){
+
+    }
+
+    render () {
+        let value = this.context;
+    }
+}
+
+abs.contextType = MyContext;
+
+
+//Context.Consumer
+
+<MyContext.Consumer>
+{value => }
+</MyContext.Consumer>
