@@ -10,26 +10,27 @@ const ProductsPage = props => {
         <React.Fragment>
           <MainNavigation
             cartItemNumber={context.cart.reduce((count, curItem) => {
-              return count + curItem.quntity;
+              return count + curItem.quantity;
             }, 0)}
-            />
-            <main className="products">
-              <ul>
-                {context.products.map(product => (
-                  <li key={product.id}>
-                    <div>
-                      <strong>{product.title}</strong> - ${product.price}
-                    </div>
-                    <div>
-                      <button
-                        onClick={context.addProductToCart.bind(this, product)}
-                        > Add To Cart
-                        </button>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </main>
+          />
+          <main className="products">
+            <ul>
+              {context.products.map(product => (
+                <li key={product.id}>
+                  <div>
+                    <strong>{product.title}</strong> - ${product.price}
+                  </div>
+                  <div>
+                    <button
+                      onClick={context.addProductToCart.bind(this, product)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </main>
         </React.Fragment>
       )}
     </ShopContext.Consumer>
