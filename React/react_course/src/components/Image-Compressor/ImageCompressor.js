@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import imageCompression from "browser-image-compression";
-
 import "./ImageCompressor.css";
 
 const ImageCompressor = () => {
@@ -12,7 +11,6 @@ const ImageCompressor = () => {
 
   const [compressedImage, setCompressedImage] = useState("");
   const [fileName, setFileName] = useState("");
-
 
   const handleChange = (e) => {
     // console.log("clicked")
@@ -51,9 +49,9 @@ const ImageCompressor = () => {
           ) : (
             <img
               src="./images/image-icon.png"
-              className="rounded float-start original-image"
               alt="no-pic-selected"
-            /> 
+              className="rounded float-start original-image"
+            />
           )}
         </div>
 

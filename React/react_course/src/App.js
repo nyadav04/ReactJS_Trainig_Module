@@ -3,6 +3,7 @@ import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 import Main from "./components/To-do Project/Main";
 import ImageCompressor from "./components/Image-Compressor/ImageCompressor";
+import FRParentInput from "./components/Forward_Ref/FRParentInuput"
 
 const App = () => {
   const [expenses, setExpenses] = useState([
@@ -50,7 +51,9 @@ const App = () => {
       {/* <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} /> */}
       <Main/>
-      <ImageCompressor/>
+      {/* <ImageCompressor/> */}
+
+      <FRParentInput/>
     </div>
   );
 };
