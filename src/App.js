@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef } from "react";
+import Input from './Components/Input'
 
-function App() {
+const App = () => {
+  const myRef = useRef(null);
+
+  const handleClick = () => {
+    myRef.current.focus()
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <h2>Adding Ref to DOM element</h2>  
+      <Input ref={myRef} />
+      <button onClick={handleClick}>
+          Click here to add text
+        </button>
     </div>
   );
 }
