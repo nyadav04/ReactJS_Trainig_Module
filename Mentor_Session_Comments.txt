@@ -1,0 +1,32 @@
+Radhika
+Datastructure and algorithms
+Material UI
+Coding - Problem statement(Arrays sum)
+HOC
+JUnit
+Aman
+Material UI - Personal project
+Connection Lost
+Data Structure and Algorithm
+Tarun
+Topics went
+Bootstrap
+Capstone project for the final interview
+State and conditional randering the classes for changing the css
+Deepanshu
+Latest 2 weeks what all topics were covered
+Showed the assignments- HOC, context api, generator function
+No coding questions were asked
+material UI, testing and webpack to do
+Projects were implement
+Shopping cart - Material UI use and testing in it
+Search - HOC and context api
+Shubham
+Assignments
+Personal project - Hooks
+HOC, Pure compoent
+Material UI use
+DS and algo command
+Topics covered in training
+Testing
+Capstone project all the topics mentioned in the PPT should be covered.
