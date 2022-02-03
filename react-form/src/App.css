@@ -1,0 +1,22 @@
+.container{
+  margin-top: 20px;
+
+}
+h1{
+  text-align: center;
+  color:rgb(126, 72, 3)
+}
+.form{
+  margin-top:20px;
+  height:1200px;
+  width:100%;
+  background-color: rgb(238, 208, 169);
+  padding:40px;
+  border:10px solid rgb(190, 149, 95)
+}
+body{
+  background-color: antiquewhite;
+}
+button{
+  margin-top: 20px;
+}
