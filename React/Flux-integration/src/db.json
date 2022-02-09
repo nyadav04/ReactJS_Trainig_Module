@@ -1,0 +1,16 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Hello World",
+            "author": "Nishank Yadav",
+            "body": "Example of blog application"
+        },
+        {
+            "id": 2,
+            "title": "Hello Again",
+            "author": "Saurabh Singh",
+            "body": "Testing another component"
+        }
+    ]
+}
